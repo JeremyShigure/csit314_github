@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/314APP2-20211026T071015Z-001/314APP2/android/app/src/main/res/layout/activity_admin_add_user_account.xml" value="0.33" />
+        <entry key="..\:/314APP2-20211026T071015Z-001/314APP2/android/app/src/main/res/layout/activity_admin_add_user_account_page2.xml" value="0.33" />
+        <entry key="..\:/314APP2-20211026T071015Z-001/314APP2/android/app/src/main/res/layout/activity_admin_add_user_ui.xml" value="0.22" />
+        <entry key="..\:/314APP2-20211026T071015Z-001/314APP2/android/app/src/main/res/layout/activity_admin_controller.xml" value="0.11340852130325814" />
+        <entry key="..\:/314APP2-20211026T071015Z-001/314APP2/android/app/src/main/res/layout/activity_admin_main_page.xml" value="0.33" />
+        <entry key="..\:/314APP2-20211026T071015Z-001/314APP2/android/app/src/main/res/layout/activity_admin_search_user_ui.xml" value="0.30085470085470084" />
+        <entry key="..\:/314APP2-20211026T071015Z-001/314APP2/android/app/src/main/res/layout/activity_admin_update_account.xml" value="0.33" />
+        <entry key="..\:/314APP2-20211026T071015Z-001/314APP2/android/app/src/main/res/layout/activity_admin_update_account_page2.xml" value="0.20572916666666666" />
+        <entry key="..\:/314APP2-20211026T071015Z-001/314APP2/android/app/src/main/res/layout/activity_admin_update_user_ui.xml" value="0.33" />
+        <entry key="..\:/314APP2-20211026T071015Z-001/314APP2/android/app/src/main/res/layout/activity_admin_view_accounts.xml" value="0.30085470085470084" />
+        <entry key="..\:/314APP2-20211026T071015Z-001/314APP2/android/app/src/main/res/layout/activity_admin_view_doctor_account.xml" value="0.25" />
+        <entry key="..\:/314APP2-20211026T071015Z-001/314APP2/android/app/src/main/res/layout/activity_admin_view_doctor_summary.xml" value="0.33" />
+        <entry key="..\:/314APP2-20211026T071015Z-001/314APP2/android/app/src/main/res/layout/activity_admin_view_one_account.xml" value="0.25" />
+        <entry key="..\:/314APP2-20211026T071015Z-001/314APP2/android/app/src/main/res/layout/activity_admin_view_patient_account.xml" value="0.25" />
+        <entry key="..\:/314APP2-20211026T071015Z-001/314APP2/android/app/src/main/res/layout/activity_admin_view_patient_summary.xml" value="0.25" />
+        <entry key="..\:/314APP2-20211026T071015Z-001/314APP2/android/app/src/main/res/layout/activity_admin_view_patient_summary_prescriptions.xml" value="0.2033514492753623" />
+        <entry key="..\:/314APP2-20211026T071015Z-001/314APP2/android/app/src/main/res/layout/activity_admin_view_pharmacist_account.xml" value="0.25" />
+        <entry key="..\:/314APP2-20211026T071015Z-001/314APP2/android/app/src/main/res/layout/activity_admin_view_pharmacist_account2.xml" value="0.20471014492753623" />
+        <entry key="..\:/314APP2-20211026T071015Z-001/314APP2/android/app/src/main/res/layout/activity_admin_view_pharmacist_summary.xml" value="0.25" />
+        <entry key="..\:/314APP2-20211026T071015Z-001/314APP2/android/app/src/main/res/layout/activity_admin_view_several_acrivities.xml" value="0.22327898550724637" />
+        <entry key="..\:/314APP2-20211026T071015Z-001/314APP2/android/app/src/main/res/layout/activity_doctor_add_prescription.xml" value="0.33" />
+        <entry key="..\:/314APP2-20211026T071015Z-001/314APP2/android/app/src/main/res/layout/activity_doctor_delete_prescription.xml" value="0.33" />
+        <entry key="..\:/314APP2-20211026T071015Z-001/314APP2/android/app/src/main/res/layout/activity_doctor_main_page.xml" value="0.3061594202898551" />
+        <entry key="..\:/314APP2-20211026T071015Z-001/314APP2/android/app/src/main/res/layout/activity_doctor_update_prescription.xml" value="0.33" />
+        <entry key="..\:/314APP2-20211026T071015Z-001/314APP2/android/app/src/main/res/layout/activity_doctor_update_prescription2.xml" value="0.1" />
+        <entry key="..\:/314APP2-20211026T071015Z-001/314APP2/android/app/src/main/res/layout/activity_doctor_view_patient_prescription.xml" value="0.33" />
+        <entry key="..\:/314APP2-20211026T071015Z-001/314APP2/android/app/src/main/res/layout/activity_doctor_view_patient_prescription_page2.xml" value="0.33" />
+        <entry key="..\:/314APP2-20211026T071015Z-001/314APP2/android/app/src/main/res/layout/activity_doctor_view_updated_patient_prescription.xml" value="0.20572916666666666" />
+        <entry key="..\:/314APP2-20211026T071015Z-001/314APP2/android/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/314APP2-20211026T071015Z-001/314APP2/android/app/src/main/res/layout/activity_patient_main_page.xml" value="0.25" />
+        <entry key="..\:/314APP2-20211026T071015Z-001/314APP2/android/app/src/main/res/layout/activity_patient_view_prescription.xml" value="0.33" />
+        <entry key="..\:/314APP2-20211026T071015Z-001/314APP2/android/app/src/main/res/layout/activity_pharmacist_main_page.xml" value="0.22" />
+        <entry key="..\:/314APP2-20211026T071015Z-001/314APP2/android/app/src/main/res/layout/activity_pharmacist_press_update_status.xml" value="0.18342391304347827" />
+        <entry key="..\:/314APP2-20211026T071015Z-001/314APP2/android/app/src/main/res/layout/activity_pharmacist_update_prescription_status.xml" value="0.2033514492753623" />
+        <entry key="..\:/314APP2-20211026T071015Z-001/314APP2/android/app/src/main/res/layout/activity_pharmacist_view_current_prescription_status.xml" value="0.2" />
+        <entry key="..\:/314APP2-20211026T071015Z-001/314APP2/android/app/src/main/res/layout/activity_pharmacist_view_patient_prescription.xml" value="0.33" />
+        <entry key="..\:/314APP2-20211026T071015Z-001/314APP2/android/app/src/main/res/layout/activity_pharmacist_view_patient_prescription_page2.xml" value="0.33" />
+        <entry key="..\:/314APP2-20211026T071015Z-001/314APP2/android/app/src/main/res/layout/activity_pharmacist_view_patient_prescription_status_page2.xml" value="0.33" />
+        <entry key="..\:/314APP2-20211026T071015Z-001/314APP2/android/app/src/main/res/layout/activity_pharmacist_view_prescription_status.xml" value="0.25" />
+        <entry key="..\:/314APP2-20211026T071015Z-001/314APP2/android/app/src/main/res/layout/activity_pharmacist_view_updated_prescription_status.xml" value="0.25" />
+        <entry key="..\:/314APP2-20211026T071015Z-001/314APP2/android/app/src/main/res/layout/activity_pharmacist_view_updated_prescription_status_page2.xml" value="0.33" />
+        <entry key="..\:/314APP2-20211026T071015Z-001/314APP2/android/app/src/main/res/layout/activity_pharmacist_view_updated_to_yes_page.xml" value="0.20572916666666666" />
+        <entry key="..\:/314APP2-20211026T071015Z-001/314APP2/android/app/src/main/res/layout/activity_summary_of_account_created.xml" value="0.33" />
+        <entry key="..\:/314APP2-20211026T071015Z-001/314APP2/android/app/src/main/res/layout/activity_summary_of_updated_account.xml" value="0.25" />
+        <entry key="..\:/314APP2-20211026T071015Z-001/314APP2/android/app/src/main/res/layout/activity_testing.xml" value="0.2033514492753623" />
+        <entry key="..\:/314APP2-20211026T071015Z-001/314APP2/android/app/src/main/res/layout/activity_view_patient_prescription.xml" value="0.33" />
+        <entry key="..\:/314APP2-20211026T071015Z-001/314APP2/android/app/src/main/res/layout/activity_view_patient_prescription2.xml" value="0.19166666666666668" />
+        <entry key="..\:/314APP2-20211026T071015Z-001/314APP2/android/app/src/main/res/layout/activity_view_patient_prescription3.xml" value="0.10587639311043566" />
+        <entry key="..\:/314APP2-20211026T071015Z-001/314APP2/android/app/src/main/res/layout/adduser.xml" value="0.25" />
+        <entry key="..\:/314APP2-20211026T071015Z-001/314APP2/android/app/src/main/res/layout/addusercont.xml" value="0.25" />
+        <entry key="..\:/314APP2-20211026T071015Z-001/314APP2/android/app/src/main/res/layout/admin.xml" value="0.36614583333333334" />
+        <entry key="..\:/314APP2-20211026T071015Z-001/314APP2/android/app/src/main/res/layout/content_view_patient_prescription.xml" value="0.33" />
+        <entry key="..\:/314APP2-20211026T071015Z-001/314APP2/android/app/src/main/res/layout/doctor.xml" value="0.36666666666666664" />
+        <entry key="..\:/314APP2-20211026T071015Z-001/314APP2/android/app/src/main/res/layout/doctorup.xml" value="0.25" />
+        <entry key="..\:/314APP2-20211026T071015Z-001/314APP2/android/app/src/main/res/layout/doctorupp.xml" value="0.36614583333333334" />
+        <entry key="..\:/314APP2-20211026T071015Z-001/314APP2/android/app/src/main/res/layout/doctorvpp.xml" value="0.25181159420289856" />
+        <entry key="..\:/314APP2-20211026T071015Z-001/314APP2/android/app/src/main/res/layout/patient.xml" value="0.33" />
+        <entry key="..\:/314APP2-20211026T071015Z-001/314APP2/android/app/src/main/res/layout/patientpre.xml" value="0.22509225092250923" />
+        <entry key="..\:/314APP2-20211026T071015Z-001/314APP2/android/app/src/main/res/layout/pharmacy.xml" value="0.17831813576494426" />
+        <entry key="..\:/314APP2-20211026T071015Z-001/314APP2/android/app/src/main/res/layout/sumaddacc.xml" value="0.20471014492753623" />
+        <entry key="..\:/314APP2-20211026T071015Z-001/314APP2/android/app/src/main/res/layout/sumupdateuser.xml" value="0.20572916666666666" />
+        <entry key="..\:/314APP2-20211026T071015Z-001/314APP2/android/app/src/main/res/layout/updateuserpro.xml" value="0.20572916666666666" />
+        <entry key="..\:/314APP2-20211026T071015Z-001/314APP2/android/app/src/main/res/layout/updateuserprocont.xml" value="0.20471014492753623" />
+        <entry key="..\:/314APP2-20211026T071015Z-001/314APP2/android/app/src/main/res/layout/viewdocacc.xml" value="0.20572916666666666" />
+        <entry key="..\:/314APP2-20211026T071015Z-001/314APP2/android/app/src/main/res/layout/viewdocacccont.xml" value="0.20572916666666666" />
+        <entry key="..\:/314APP2-20211026T071015Z-001/314APP2/android/app/src/main/res/layout/viewpatientacc.xml" value="0.20471014492753623" />
+        <entry key="..\:/314APP2-20211026T071015Z-001/314APP2/android/app/src/main/res/layout/viewpatientacccont.xml" value="0.20471014492753623" />
+        <entry key="..\:/314APP2-20211026T071015Z-001/314APP2/android/app/src/main/res/layout/viewpharmacyacc.xml" value="0.17831813576494426" />
+        <entry key="..\:/314APP2-20211026T071015Z-001/314APP2/android/app/src/main/res/layout/viewpharmacyacccont.xml" value="0.2033514492753623" />
+        <entry key="..\:/314APP2-20211026T071015Z-001/314APP2/android/app/src/main/res/layout/viewppacc.xml" value="0.2033514492753623" />
+        <entry key="..\:/314APP2-20211026T071015Z-001/314APP2/android/app/src/main/res/layout/vpp.xml" value="0.22" />
+        <entry key="..\:/314APP2-20211026T071015Z-001/314APP2/android/app/src/main/res/layout/vps.xml" value="0.2" />
+        <entry key="..\:/314APP2/314APP2/android/app/src/main/res/layout/addusercont.xml" value="0.36614583333333334" />
+        <entry key="..\:/314APP2/314APP2/android/app/src/main/res/layout/admin.xml" value="0.36614583333333334" />
+        <entry key="..\:/314APP2/314APP2/android/app/src/main/res/layout/doctor.xml" value="0.36614583333333334" />
+        <entry key="..\:/314APP2/314APP2/android/app/src/main/res/layout/doctorupp.xml" value="0.36614583333333334" />
+        <entry key="..\:/314APP2/314APP2/android/app/src/main/res/layout/ups.xml" value="0.2817028985507246" />
+        <entry key="..\:/314APP2/314APP2/android/app/src/main/res/layout/viewdocacc.xml" value="0.36614583333333334" />
+        <entry key="..\:/314APP2/314APP2/android/app/src/main/res/layout/viewdocacccont.xml" value="0.25" />
+        <entry key="..\:/314APP2/314APP2/android/app/src/main/res/layout/viewpatientacc.xml" value="0.36614583333333334" />
+        <entry key="..\:/314APP2/314APP2/android/app/src/main/res/layout/viewpatientacccont.xml" value="0.36614583333333334" />
+        <entry key="..\:/314APP2/314APP2/android/app/src/main/res/layout/viewpharmacyacc.xml" value="0.36614583333333334" />
+        <entry key="..\:/314APP2/314APP2/android/app/src/main/res/layout/viewpharmacyacccont.xml" value="0.36614583333333334" />
+        <entry key="..\:/314APP2/314APP2/android/app/src/main/res/layout/viewppacc.xml" value="0.36614583333333334" />
+        <entry key="..\:/314APP2/314APP2/android/app/src/main/res/layout/vpp.xml" value="0.36614583333333334" />
+        <entry key="..\:/314APP2/314APP2/android/app/src/main/res/layout/vps.xml" value="0.36614583333333334" />
+        <entry key="..\:/314APP2/android/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
+        <entry key="..\:/314APP2/android/app/src/main/res/layout/adduser.xml" value="0.36666666666666664" />
+        <entry key="..\:/314APP2/android/app/src/main/res/layout/addusercont.xml" value="0.36666666666666664" />
+        <entry key="..\:/314APP2/android/app/src/main/res/layout/admin.xml" value="0.3625" />
+        <entry key="..\:/314APP2/android/app/src/main/res/layout/doctor.xml" value="0.3625" />
+        <entry key="..\:/314APP2/android/app/src/main/res/layout/doctorup.xml" value="0.36666666666666664" />
+        <entry key="..\:/314APP2/android/app/src/main/res/layout/doctorupp.xml" value="0.36666666666666664" />
+        <entry key="..\:/314APP2/android/app/src/main/res/layout/doctorvpp.xml" value="0.36666666666666664" />
+        <entry key="..\:/314APP2/android/app/src/main/res/layout/patient.xml" value="0.36666666666666664" />
+        <entry key="..\:/314APP2/android/app/src/main/res/layout/patientpre.xml" value="0.36666666666666664" />
+        <entry key="..\:/314APP2/android/app/src/main/res/layout/pharmacy.xml" value="0.36666666666666664" />
+        <entry key="..\:/314APP2/android/app/src/main/res/layout/sumaddacc.xml" value="0.36666666666666664" />
+        <entry key="..\:/314APP2/android/app/src/main/res/layout/sumupdateuser.xml" value="0.36666666666666664" />
+        <entry key="..\:/314APP2/android/app/src/main/res/layout/updateuserpro.xml" value="0.36666666666666664" />
+        <entry key="..\:/314APP2/android/app/src/main/res/layout/updateuserprocont.xml" value="0.36666666666666664" />
+        <entry key="..\:/314APP2/android/app/src/main/res/layout/ups.xml" value="0.36666666666666664" />
+        <entry key="..\:/314APP2/android/app/src/main/res/layout/viewdocacc.xml" value="0.36666666666666664" />
+        <entry key="..\:/314APP2/android/app/src/main/res/layout/viewdocacccont.xml" value="0.36666666666666664" />
+        <entry key="..\:/314APP2/android/app/src/main/res/layout/viewpatientacc.xml" value="0.3625" />
+        <entry key="..\:/314APP2/android/app/src/main/res/layout/viewpatientacccont.xml" value="0.3625" />
+        <entry key="..\:/314APP2/android/app/src/main/res/layout/viewpharmacyacc.xml" value="0.3625" />
+        <entry key="..\:/314APP2/android/app/src/main/res/layout/viewpharmacyacccont.xml" value="0.3625" />
+        <entry key="..\:/314APP2/android/app/src/main/res/layout/viewppacc.xml" value="0.3625" />
+        <entry key="..\:/314APP2/android/app/src/main/res/layout/vpp.xml" value="0.3625" />
+        <entry key="..\:/314APP2/android/app/src/main/res/layout/vps.xml" value="0.3625" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

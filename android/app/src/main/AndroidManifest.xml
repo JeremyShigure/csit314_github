@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.myapplication.Boundary">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.MyApplication">
+        <activity
+            android:name=".patientViewPrescriptionUI"
+            android:exported="false" />
+        <activity
+            android:name=".AdminSearchUserUI"
+            android:exported="false" />
+        <activity
+            android:name=".AdminAddUserUI"
+            android:exported="false" />
+        <activity
+            android:name=".doctorUpdatePrescriptionUI"
+            android:exported="false" />
+        <activity
+            android:name=".PharmacistViewUpdatedPrescriptionStatusPage2"
+            android:exported="false" />
+        <activity
+            android:name=".PharmacistViewCurrentPrescriptionStatus"
+            android:exported="false" />
+        <activity
+            android:name=".PharmacistViewUpdatedToYesPage"
+            android:exported="false" />
+<!--        <activity-->
+<!--            android:name=".PharmacistViewPrescriptionStatus"-->
+<!--            android:exported="false" />-->
+        <activity
+            android:name=".PharmacistViewPatientPrescriptionStatusPage2"
+            android:exported="false" />
+<!--        <activity-->
+<!--            android:name=".PharmacistViewPatientPrescriptionPage2"-->
+<!--            android:exported="false" />-->
+<!--        <activity-->
+<!--            android:name=".PharmacistViewUpdatedPrescriptionStatus"-->
+<!--            android:exported="false" />-->
+        <activity
+            android:name=".PharmacistViewPrescriptionUI"
+            android:exported="false" />
+        <activity
+            android:name=".DoctorViewUpdatedPatientPrescription"
+            android:exported="false" />
+        <activity
+            android:name=".DoctorViewPatientPrescriptionPage2"
+            android:exported="false" />
+        <activity
+            android:name=".AdminViewPharmacistSummary"
+            android:exported="false" />
+        <activity
+            android:name=".AdminViewPatientSummary"
+            android:exported="false" />
+        <activity
+            android:name=".AdminViewDoctorSummary"
+            android:exported="false" />
+        <activity
+            android:name=".SummaryOfUpdatedAccount"
+            android:exported="false" />
+<!--        <activity-->
+<!--            android:name=".AdminUpdateAccountPage2"-->
+<!--            android:exported="false" />-->
+        <activity
+            android:name=".AdminUpdateUserUI"
+            android:exported="false" />
+        <activity
+            android:name=".SummaryOfAccountAdded"
+            android:exported="false" />
+<!--        <activity-->
+<!--            android:name=".AdminAddUserAccountPage2"-->
+<!--            android:exported="false"-->
+<!--            android:parentActivityName=".AdminAddUserAccount" />-->
+        <activity
+            android:name=".doctorSearchThenAddUpdate"
+            android:exported="false" />
+        <activity
+            android:name=".doctorAddPrescriptionUI"
+            android:exported="false" />
+        <activity
+            android:name=".doctorViewPrescriptionUI"
+            android:exported="false" />
+        <activity
+            android:name=".AdminMainPage"
+            android:exported="false" />
+        <activity
+            android:name=".PharmacistMainPage"
+            android:exported="false" />
+        <activity
+            android:name=".PatientMainPage"
+            android:exported="false" />
+        <activity
+            android:name=".DoctorMainPage"
+            android:exported="false" />
+        <activity android:name=".UserLoginPage">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+    </application>
+
+</manifest>

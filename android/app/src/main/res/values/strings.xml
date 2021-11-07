@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <!-- Strings used for fragments for navigation -->
+
+    <string-array name="roletype">
+        <item>doctor</item>
+        <item>patient</item>
+        <item>pharmacist</item>
+        <item>admin</item>
+    </string-array>
+
+</resources>
+
