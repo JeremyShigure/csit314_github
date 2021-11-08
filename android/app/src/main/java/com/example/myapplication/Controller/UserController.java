@@ -14,9 +14,9 @@ import com.example.myapplication.Boundary.PatientMainPage;
 import com.example.myapplication.Boundary.PharmacistMainPage;
 import com.example.myapplication.Boundary.UserLoginPage;
 import com.example.myapplication.Entity.User;
+import com.example.myapplication.Entity.People;
 
 public class UserController extends AppCompatActivity {
-
 
     User user = new User(UserController.this);
     //DBHelper db = new DBHelper();
@@ -34,16 +34,46 @@ public class UserController extends AppCompatActivity {
 
     public boolean CheckAddedDetails(String userName, String password, String roles, String address, String contactNumber, String email) {
 
-        boolean isValidate = user.insertData(userName, password, roles, address, contactNumber, email);
-        if (isValidate) {
+        boolean isValidate = user.AddUserDetails(userName, password, roles, address, contactNumber, email);
 
+        if (isValidate) {
             return true;
         }
         else {
             return false;
         }
-
     }
+    
+    public boolean CheckUpdateDetails(String userName, String password, String roles, String address, String contactNumber, String email) {
+        boolean isValidate = user.UpdateUserDetails(userName, password, roles, address, contactNumber, email);
+
+        if (isValidate) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+
+    //here
+    public People ViewController(String userName) {
+        String roles = "";
+        boolean isAdded = user.checkUserNameExistOrNot(userName);
+        People p1 = new People();
+        if (isAdded) {
+            p1 = user.checkUserExistInWhichTable(userName);
+            System.out.println(p1.getUserName());
+            System.out.println(p1.getRoles());
+            System.out.println(p1.getAddress());
+            System.out.println(p1.getContactNumber());
+            System.out.println(p1.getEmail());
+            System.out.println(p1.getPassword());
+        }
+        return p1;
+    }
+
+
 //
 //    public boolean checkAddedDetails(String userName, String password, String roles, String address, String contactNumber, String email) {
 //        boolean isValidate = user.insertData(userName, password, roles, address, contactNumber, email);

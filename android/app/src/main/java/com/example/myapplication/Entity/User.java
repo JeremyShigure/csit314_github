@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import com.example.myapplication.Entity.People;
 
 import com.example.myapplication.Controller.UserController;
 
@@ -15,7 +16,7 @@ import java.io.OutputStream;
 
 public class User extends SQLiteOpenHelper{
 
-    String adminID;
+
     String userName;
     String password;
     String roles;
@@ -37,13 +38,6 @@ public class User extends SQLiteOpenHelper{
         createDb();
     }
 
-    public String getAdminID() {
-        return adminID;
-    }
-
-    public void setAdminID(String adminID) {
-        this.adminID = adminID;
-    }
 
     public String getUserName() {
         return userName;
@@ -194,177 +188,83 @@ public class User extends SQLiteOpenHelper{
         cursor.close();
         close();
 
-        if(count > 0){
+        if(count > 0) {
             return true;
         } else {
             return false;
         }
     }
-
-    public boolean checkUsernameExistOrNot(String username){
+    //CHeck User existing in database
+    public boolean checkUserNameExistOrNot(String username){
         String[] columns = {"userName"};
         db = openDatabase();
 
         String selection = "userName=? ";
         String[] selectionArgs = {username};
 
-        Cursor cursor = db.query("Doctor ", columns, selection, selectionArgs, null, null, null);
+        Cursor cursor = db.query("AllUser", columns, selection, selectionArgs, null, null, null);
         int count = cursor.getCount();
 
         cursor.close();
         close();
 
-        if(count > 0){
+        if(count > 0) {
             return true;
         } else {
             return false;
         }
     }
+    People p1;
 
-    public String checkUserExistInWhichTable(String username){
-        String ROLE = "";
-        String[] columnsUserName = {"userName"};
+    //Retrieve role from Alluser Table
+    public People checkUserExistInWhichTable(String userName){
+
+        String[] columns = {"*"};
         db = openDatabase();
 
-        String selectionUserName = "userName=? ";
-        String[] selectionArgsUserName = {username};
+        String selection = "userName=?";
+        String[] selectionArgs = {userName};
 
-        Cursor cursorPatient = db.query("Patient ", columnsUserName, selectionUserName, selectionArgsUserName, null, null, null);
-
-        Cursor cursorDoctor = db.query("Doctor ", columnsUserName, selectionUserName, selectionArgsUserName, null, null, null);
-
-        Cursor cursorPharmacist = db.query("Pharmacist ", columnsUserName, selectionUserName, selectionArgsUserName, null, null, null);
-
-        int countDoctor;
-        countDoctor = cursorDoctor.getCount();
-
-        int countPatient;
-        countPatient = cursorPatient.getCount();
-
-        int countPharmacist;
-        countPharmacist = cursorPharmacist.getCount();
-
-        cursorDoctor.close();
-        cursorPatient.close();
-        cursorPharmacist.close();
+        Cursor cursor = db.query("AllUser", columns, selection, selectionArgs, null, null, null);
+        //String roles ="";
+        //System.out.println(cursor.getColumnIndex("data"));
+        if(cursor.moveToFirst()){
+            userName = cursor.getString(1);
+            password = cursor.getString(2);
+            roles = cursor.getString(3);
+            address = cursor.getString(4);
+            contactNumber = cursor.getString(5);
+            email = cursor.getString(6);
+            p1 = new People(userName, password, roles, address, contactNumber, email);
+        }
+        cursor.close();
         close();
-
-        if (countPatient > 0) {
-            String patRole = "";
-            String queryPat = "SELECT roles FROM Patient WHERE userName = " + "'" + username + "'";
-            db = openDatabase();
-            SQLiteDatabase db = this.getWritableDatabase();
-
-            Cursor cursorPat = db.rawQuery(queryPat, null);
-
-            while (cursorPat.moveToNext()) {
-                patRole = cursorPat.getString(0);
-                System.out.println(patRole);
-                ROLE = patRole;
-            }
-
-        }
-        else if (countDoctor > 0) {
-            String docRole = "";
-            String queryDoc = "SELECT roles FROM Doctor WHERE userName = " + "'" + username + "'";
-            db = openDatabase();
-            SQLiteDatabase db = this.getWritableDatabase();
-
-            Cursor cursorDoc = db.rawQuery(queryDoc, null);
-
-            while (cursorDoc.moveToNext()) {
-                docRole = cursorDoc.getString(0);
-                System.out.println(docRole);
-                ROLE = docRole;
-            }
-
-        }
-        else if (countPharmacist > 0) {
-            String pharRole = "";
-            String queryPhar = "SELECT roles FROM Pharmacist WHERE userName = " + "'" + username + "'";
-            db = openDatabase();
-            SQLiteDatabase db = this.getWritableDatabase();
-
-            Cursor cursorPhar = db.rawQuery(queryPhar, null);
-
-            while (cursorPhar.moveToNext()) {
-                pharRole = cursorPhar.getString(0);
-                System.out.println(pharRole);
-                ROLE = pharRole;
-            }
-
-        }
-        return ROLE;
+        //p1.setRoles(roles);
+        return p1;
     }
 
 
-//    public boolean checkUserExistInWhichTable(String username){
-//        String[] columns = {"roles"};
-//        db = openDatabase();
-//
-//        String selection = "userName = ?";
-//        String[] selectionArgs = {username};
-//
-//        Cursor cursor = db.query("Doctor", columns, selection, selectionArgs, null, null, null);
-//        int count = cursor.getCount();
-//
-//        cursor.close();
-//        close();
-//
-//        if(count > 0){
-//            return true;
-//        } else {
-//            return false;
-//        }
-//    }
+
 
 //    public String returnRoleTableAfterCheck(String username, boolean checkingUser) {
 //        String role = "";
 //
-//        String[] columns = {"roles"};
-//        db = openDatabase();
-//
-//        String selection = "userName = ?";
-//        String[] selectionArgs = {username};
-//
-//        Cursor cursor = db.query("Doctor", columns, selection, selectionArgs, null, null, null);
-//
 //        if (checkingUser == true) {
-//            if (cursor.moveToFirst()) {
-//                do {
-//                    String getRole = cursor.getString(0);
-//                }
-//                while(cursor.moveToNext());
+//            String conditions = "doctor join patient on doctor.docID = patient.patID join pharmacist on pharmacist.pharID = patient.patID";
+//            final Cursor c = db.rawQuery("SELECT roles FROM " + conditions + " WHERE userName =  " + "'" + username + "'", null);
+//
+//            if (c.moveToFirst()) {
+//                role = c.getString(c.getColumnIndex("roles"));
 //            }
 //            return role;
 //        }
-//        else {
-//            return "";
-//        }
+//
+//        return role;
 //    }
 
-    public String returnRoleTableAfterCheck(String username, boolean checkingUser) {
-        String role = "";
 
-        if (checkingUser == true) {
-            String conditions = "doctor join patient on doctor.docID = patient.patID join pharmacist on pharmacist.pharID = patient.patID";
-            final Cursor c = db.rawQuery("SELECT roles FROM " + conditions + " WHERE userName =  " + "'" + username + "'", null);
-
-            if (c.moveToFirst()) {
-                role = c.getString(c.getColumnIndex("roles"));
-            }
-            return role;
-        }
-
-        return role;
-    }
-
-
-    public boolean insertData(String userName, String password, String roles, String address, String contactNumber, String email)
-    {
-
-        System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
-        //this line creates database and table
+    public boolean AddUserDetails(String userName, String password, String roles, String address, String contactNumber, String email) {
+        //System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
 
         db = openDatabase();
         System.out.println(db);
@@ -381,11 +281,10 @@ public class User extends SQLiteOpenHelper{
 
         //If insert fails, its gonna return -1 to us
         long result = db.insert(roles, null, contentValues);
-        if(result == -1)
-        {
+        if(result == -1) {
             return false;
         }
-        else{
+        else {
             return true;
         }
     }
@@ -408,17 +307,17 @@ public class User extends SQLiteOpenHelper{
         return res;
     }
 
-    public Cursor getUserAccountData(String userNameInput, String passwordInput)
-    {
+    public Cursor getUserAccountData(String userNameInput, String passwordInput) {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor res = db.rawQuery("SELECT role from Login where userName = " + "'" + userNameInput + "'" + "and password = " + "'" + passwordInput + "'", null);
         return res;
     }
 
-    public boolean UpdateData(String Username, String Password, String Role, String Address, String contactNo, String email)
-    {
-        SQLiteDatabase db = this.getWritableDatabase();
-        //Create ContentValues object to insert data into table
+    public boolean UpdateUserDetails(String Username, String Password, String Role, String Address, String contactNo, String email) {
+//        SQLiteDatabase db = this.getWritableDatabase();
+
+        db = openDatabase();
+
         ContentValues contentValues = new ContentValues();
         //contentValues.put(Role + "ID", id);
         contentValues.put("password", Password);

@@ -38,14 +38,14 @@
 <!--            android:name=".PharmacistViewPrescriptionStatus"-->
 <!--            android:exported="false" />-->
         <activity
-            android:name=".PharmacistViewPatientPrescriptionStatusPage2"
+            android:name=".ViewPrescriptionStatus"
             android:exported="false" />
-<!--        <activity-->
-<!--            android:name=".PharmacistViewPatientPrescriptionPage2"-->
-<!--            android:exported="false" />-->
-<!--        <activity-->
-<!--            android:name=".PharmacistViewUpdatedPrescriptionStatus"-->
-<!--            android:exported="false" />-->
+        <activity
+            android:name=".PharmacistViewPrescriptionSummaryUI"
+            android:exported="false" />
+        <activity
+            android:name=".PharmacistUpdatePrescriptionStatusUI"
+            android:exported="false" />
         <activity
             android:name=".PharmacistViewPrescriptionUI"
             android:exported="false" />

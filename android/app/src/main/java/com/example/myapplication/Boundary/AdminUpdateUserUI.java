@@ -11,13 +11,13 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.myapplication.Boundary.R;
+import com.example.myapplication.Controller.UserController;
 
 public class AdminUpdateUserUI extends AppCompatActivity {
 
-    DBHelper myDb;
-    Spinner drop;
+    Spinner roles;
     Button npButton;
-    EditText enterID, enterName, enterPassword, enterAddress, enterContactNo, enterEmail;
+    EditText userName, password, address, contactNumber, email;
 
 
     @Override
@@ -26,30 +26,32 @@ public class AdminUpdateUserUI extends AppCompatActivity {
         setContentView(R.layout.activity_admin_update_user_ui);
 
         //Instantiation or variables
-        myDb = new DBHelper(AdminUpdateUserUI.this);
         npButton = (Button) findViewById(R.id.npButton);
-        enterName = (EditText) findViewById(R.id.useraddnameTextBox);
-        enterPassword = (EditText) findViewById(R.id.useraddpassTextBox);
-        drop = (Spinner) findViewById(R.id.spinner2);
-        enterAddress = (EditText) findViewById(R.id.add1TextBox2);
-        enterContactNo = (EditText) findViewById(R.id.add1TextBox3);
-        enterEmail = (EditText) findViewById(R.id.add1TextBox6);
+        userName = (EditText) findViewById(R.id.useraddnameTextBox);
+        password = (EditText) findViewById(R.id.useraddpassTextBox);
+        roles = (Spinner) findViewById(R.id.spinner2);
+        address = (EditText) findViewById(R.id.add1TextBox2);
+        contactNumber = (EditText) findViewById(R.id.add1TextBox3);
+        email = (EditText) findViewById(R.id.add1TextBox6);
+
+        UserController userController = new UserController();
+
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.roletype, R.layout.support_simple_spinner_dropdown_item);
-        drop.setAdapter(adapter);
+        roles.setAdapter(adapter);
 
         npButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                boolean isInsert = myDb.UpdateData(enterName.getText().toString() ,enterPassword.getText().toString(), drop.getSelectedItem().toString(), enterAddress.getText().toString(), enterContactNo.getText().toString(), enterEmail.getText().toString());
-                if (isInsert && myDb.checkUserExist(enterName.getText().toString(), drop.getSelectedItem().toString())) {
+                boolean isInsert = userController.CheckUpdateDetails(userName.getText().toString() ,password.getText().toString(), roles.getSelectedItem().toString(), address.getText().toString(), contactNumber.getText().toString(), email.getText().toString());
+                if (isInsert && userController.CheckAddedDetails(userName.getText().toString() ,password.getText().toString(), roles.getSelectedItem().toString(), address.getText().toString(), contactNumber.getText().toString(), email.getText().toString())) {
 
-                    String getUserName = enterName.getText().toString();
-                    String getUserPassword = enterPassword.getText().toString();
-                    String getUserRole = drop.getSelectedItem().toString();
-                    String getUserAddress = enterAddress.getText().toString();
-                    String getUserContactNo = enterContactNo.getText().toString();
-                    String getUserEmail = enterEmail.getText().toString();
+                    String getUserName = userName.getText().toString();
+                    String getUserPassword = password.getText().toString();
+                    String getUserRole = roles.getSelectedItem().toString();
+                    String getUserAddress = address.getText().toString();
+                    String getUserContactNo = contactNumber.getText().toString();
+                    String getUserEmail = email.getText().toString();
 
                     Toast.makeText(AdminUpdateUserUI.this, "Data updated successfully!", Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(AdminUpdateUserUI.this, SummaryOfUpdatedAccount.class);

@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 import com.example.myapplication.Boundary.R;
 
@@ -13,6 +14,7 @@ public class PharmacistUpdatePrescriptionStatusUI extends AppCompatActivity {
 
     Button upsearchButton2;
     Button upsbthButton2;
+    EditText userName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +34,8 @@ public class PharmacistUpdatePrescriptionStatusUI extends AppCompatActivity {
             /* Get a reference for each button */
             upsearchButton2 = (Button) findViewById(R.id.upsearchButton2);
             upsbthButton2 = (Button) findViewById(R.id.upsbthButton2);
+            userName = (EditText) findViewById(R.id.vppidTextBox2);
+
 
         } catch (NullPointerException exc) {
             exc.printStackTrace();
@@ -41,7 +45,7 @@ public class PharmacistUpdatePrescriptionStatusUI extends AppCompatActivity {
     private void setListenerForViews() {
         upsearchButton2.setOnClickListener(myListener);
         upsbthButton2.setOnClickListener(myListener);
-
+        userName.setOnClickListener(myListener);
     }
 
     View.OnClickListener myListener = new View.OnClickListener() {

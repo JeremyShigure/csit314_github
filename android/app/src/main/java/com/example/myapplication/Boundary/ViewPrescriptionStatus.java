@@ -5,13 +5,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import com.example.myapplication.Boundary.R;
 
 public class ViewPrescriptionStatus extends AppCompatActivity {
 
     Button searchButton;
-    Button button9;
+    EditText userName;
     Button vppbthButton;
 
     @Override
@@ -31,7 +33,7 @@ public class ViewPrescriptionStatus extends AppCompatActivity {
         try {
             /* Get a reference for each button */
             searchButton = (Button) findViewById(R.id.searchButton);
-            //button9 = (Button) findViewById(R.id.button9);
+            userName = (EditText) findViewById(R.id.vppidTextBox);
             vppbthButton = (Button) findViewById(R.id.vppbthButton);
 
         } catch (NullPointerException exc) {
@@ -41,7 +43,7 @@ public class ViewPrescriptionStatus extends AppCompatActivity {
 
     private void setListenerForViews() {
         searchButton.setOnClickListener(myListener);
-        //button9.setOnClickListener(myListener);
+        userName.setOnClickListener(myListener);
         vppbthButton.setOnClickListener(myListener);
     }
 
@@ -51,9 +53,6 @@ public class ViewPrescriptionStatus extends AppCompatActivity {
             if (view == searchButton) {
                 PharmacistViewPatientPrescriptionStatusPage2();
             }
-//            if (view == button9) {
-//                PharmacistViewPatientPrescriptionStatusPage2();
-//            }
             if (view == vppbthButton) {
                 goHome();
             }

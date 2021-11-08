@@ -25,8 +25,6 @@ public class AdminAddUserUI extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_add_user_ui);
 
-        //myDb = new DBHelper(AdminAddUserUI.this);
-
         addUserButton = (Button) findViewById(R.id.npButton);
         userName = (EditText) findViewById(R.id.useraddnameTextBox);
         password = (EditText) findViewById(R.id.useraddpassTextBox);
@@ -54,7 +52,6 @@ public class AdminAddUserUI extends AppCompatActivity {
                     String getUserAddress = address.getText().toString();
                     String getUserContactNo = contactNumber.getText().toString();
                     String getUserEmail = email.getText().toString();
-
 
 
                     Toast.makeText(AdminAddUserUI.this, "Data inserted successfully!", Toast.LENGTH_LONG).show();
