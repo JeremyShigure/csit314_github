@@ -33,9 +33,10 @@ public class UserController extends AppCompatActivity {
     }
 
     public boolean CheckAddedDetails(String userName, String password, String roles, String address, String contactNumber, String email) {
-        boolean isValidate = user.insertData(userName, password, roles, address, contactNumber, email);
 
+        boolean isValidate = user.insertData(userName, password, roles, address, contactNumber, email);
         if (isValidate) {
+
             return true;
         }
         else {

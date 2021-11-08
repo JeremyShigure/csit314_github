@@ -23,6 +23,14 @@ public class User extends SQLiteOpenHelper{
     String contactNumber;
     String email;
 
+    private static final String DATABASE_NAME = "csit314DB.db";
+    private static final int DATABASE_VERSION = 1;
+    private final Context context;
+    SQLiteDatabase db;
+
+    private static final String DATABASE_PATH = "/data/data/com.example.myapplication/databases/";
+    private final String TABLE_NAME = "Admin";
+
     public User(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
         this.context = context;
@@ -85,14 +93,6 @@ public class User extends SQLiteOpenHelper{
         this.email = email;
     }
 
-    private static final String DATABASE_NAME = "csit314DB.db";
-    private static final int DATABASE_VERSION = 1;
-    private final Context context;
-    SQLiteDatabase db;
-
-    private static final String DATABASE_PATH = "/data/data/com.example.myapplication/databases/";
-    private final String TABLE_NAME = "User";
-
     @Override
     public void onCreate(SQLiteDatabase db) {
 
@@ -133,7 +133,6 @@ public class User extends SQLiteOpenHelper{
     private void copyDatabase(){
         try {
             InputStream inputStream = context.getAssets().open(DATABASE_NAME);
-
             String outFileName = DATABASE_PATH + DATABASE_NAME;
 
             OutputStream outputStream = new FileOutputStream(outFileName);
@@ -157,6 +156,8 @@ public class User extends SQLiteOpenHelper{
     private SQLiteDatabase openDatabase(){
         String path = DATABASE_PATH + DATABASE_NAME;
         db = SQLiteDatabase.openDatabase(path, null, SQLiteDatabase.OPEN_READWRITE);
+        System.out.println("================================+==+++==+++=++++=++++=++++++++++++++++++++++++++++++++++++++++++++++++");
+        System.out.println(db);
         return db;
     }
 
@@ -361,8 +362,13 @@ public class User extends SQLiteOpenHelper{
 
     public boolean insertData(String userName, String password, String roles, String address, String contactNumber, String email)
     {
+
+        System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
         //this line creates database and table
-        SQLiteDatabase db = this.getWritableDatabase();
+
+        db = openDatabase();
+        System.out.println(db);
+
         //Create ContentValues object to insert data into table
         ContentValues contentValues = new ContentValues();
         contentValues.put("userName", userName);

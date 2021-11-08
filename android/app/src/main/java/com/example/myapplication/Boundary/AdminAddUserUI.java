@@ -43,6 +43,7 @@ public class AdminAddUserUI extends AppCompatActivity {
         addUserButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toast.makeText(AdminAddUserUI.this, userName.getText().toString() + ", " + password.getText().toString() + ", " + roles.getSelectedItem().toString() + ", " + address.getText().toString() + ", " + contactNumber.getText().toString() + ", " + email.getText().toString(), Toast.LENGTH_LONG).show();
 
                 boolean isInsert = userController.CheckAddedDetails(userName.getText().toString(), password.getText().toString(), roles.getSelectedItem().toString(), address.getText().toString(), contactNumber.getText().toString(), email.getText().toString());
                 if (isInsert) {
@@ -53,6 +54,8 @@ public class AdminAddUserUI extends AppCompatActivity {
                     String getUserAddress = address.getText().toString();
                     String getUserContactNo = contactNumber.getText().toString();
                     String getUserEmail = email.getText().toString();
+
+
 
                     Toast.makeText(AdminAddUserUI.this, "Data inserted successfully!", Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(AdminAddUserUI.this, SummaryOfAccountAdded.class);
