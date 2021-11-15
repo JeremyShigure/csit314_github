@@ -12,7 +12,7 @@
         android:layout_width="208dp"
         android:layout_height="61dp"
         android:fontFamily="sans-serif-medium"
-        android:text="Summary of Doctor Account "
+        android:text="Summary of User Account/Profile"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

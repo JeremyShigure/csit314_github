@@ -3,14 +3,105 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ViewPatientPrescription">
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tv2"
+        android:layout_width="310dp"
+        android:layout_height="53dp"
+        android:gravity="center"
+        android:text="View Patient's Prescription"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ScrollView
+        android:layout_width="377dp"
+        android:layout_height="538dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintBottom_toTopOf="@+id/backtohome"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv2">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TableLayout
+                android:id="@+id/tableLayout1"
+                android:layout_width="386dp"
+                android:layout_height="683dp"
+                android:shrinkColumns="*"
+                android:stretchColumns="*">
+
+                <TableRow
+                    android:id="@+id/tableRow_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#16a085"
+                    android:gravity="center_horizontal">
+
+                    <TextView
+                        android:id="@+id/textView9"
+                        android:layout_span="6"
+                        android:gravity="center"
+                        android:text="Details of Patient"
+                        android:textColor="#ffffff"
+                        android:textSize="18dp"
+                        android:textStyle="bold"
+                        android:typeface="serif"></TextView>
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/tableRow_item"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_span="6"
+                    android:background="#1abc9c"
+                    android:gravity="center"
+                    android:paddingTop="3dp"
+                    android:paddingBottom="3dp">
+
+                    <TextView
+                        android:id="@+id/TextView_serial"
+                        android:layout_span="4"
+                        android:gravity="center"
+                        android:text="Medicine Name"
+                        android:textColor="#ffffff"
+                        android:textSize="15dp"></TextView>
+
+                    <TextView
+                        android:id="@+id/TextView_item_name"
+                        android:layout_span="1"
+                        android:gravity="center"
+                        android:text="Qty"
+                        android:textColor="#fff"
+                        android:typeface="serif"></TextView>
+
+                    <TextView
+                        android:id="@+id/TextView_availability"
+                        android:layout_span="1"
+                        android:gravity="center"
+                        android:text="Date"
+                        android:textColor="#fff"
+                        android:typeface="serif"></TextView>
+                </TableRow>
+            </TableLayout>
+        </LinearLayout>
+    </ScrollView>
 
     <Button
-        android:id="@+id/button16"
+        android:id="@+id/backtohome"
         android:layout_width="413dp"
         android:layout_height="79dp"
-        android:text="Back to home"
+        android:text="Back to Home"
         android:textColor="#070707"
         android:textSize="16sp"
         app:backgroundTint="#3E7395"
@@ -18,35 +109,4 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="299dp"
-        android:layout_height="51dp"
-        android:gravity="center"
-        android:text="View My Prescription"
-        android:textAlignment="center"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/button16"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.361"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.02" />
-
-    <ScrollView
-        android:id="@+id/scrollView4"
-        android:layout_width="386dp"
-        android:layout_height="530dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.36"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.497">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" />
-    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

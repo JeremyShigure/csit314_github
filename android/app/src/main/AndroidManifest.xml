@@ -35,7 +35,7 @@
             android:name=".PharmacistViewUpdatedToYesPage"
             android:exported="false" />
 <!--        <activity-->
-<!--            android:name=".PharmacistViewPrescriptionStatus"-->
+<!--            android:name=".PharmacistViewPrescriptionSummaryUI"-->
 <!--            android:exported="false" />-->
         <activity
             android:name=".ViewPrescriptionStatus"
@@ -62,7 +62,7 @@
             android:name=".AdminViewPatientSummary"
             android:exported="false" />
         <activity
-            android:name=".AdminViewDoctorSummary"
+            android:name=".AdminViewAccountSummary"
             android:exported="false" />
         <activity
             android:name=".SummaryOfUpdatedAccount"

@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.myapplication.Boundary.R;
 import com.example.myapplication.Controller.UserController;
@@ -40,8 +41,8 @@ public class AdminSearchUserUI extends AppCompatActivity implements Serializable
             b10 = (Button) findViewById(R.id.b10);
             userName = (EditText) findViewById(R.id.editTextP);
             userController = new UserController();
-
-        } catch (NullPointerException exc) {
+        }
+        catch (NullPointerException exc) {
             exc.printStackTrace();
         }
     }
@@ -56,38 +57,26 @@ public class AdminSearchUserUI extends AppCompatActivity implements Serializable
         @Override
         public void onClick(View view) {
 
-
-//            String gettingRoleFromWhichTable = (db.returnRoleTableAfterCheck(editTextP.getText().toString(), checkExist));
-//            db.checkUserExistInWhichTable(editTextP.getText().toString());
             if (view == b6) {
-                People p1 = userController.ViewController(userName.getText().toString());
-                Intent intent = new Intent(AdminSearchUserUI.this, AdminViewDoctorSummary.class);
-                intent.putExtra("roles",  p1.getRoles());
-                intent.putExtra("userName",  p1.getUserName());
-                intent.putExtra("address",  p1.getAddress());
-                intent.putExtra("contactNumber",  p1.getContactNumber());
-                intent.putExtra("email",  p1.getEmail());
-                startActivity(intent);
-//                if (userController.ViewController(userName.getText().toString())) {
-//                    //String getEditTextP = editTextP.getText().toString();
-//                    Intent intent = new Intent(AdminSearchUserUI.this, AdminViewPatientSummary.class);
-//                    //intent.putExtra("editTextP", getEditTextP);
-//                    startActivity(intent);
-//                } else if (userController.ViewController(userName.getText().toString()) = "Doctor" || userController.ViewController(userName.getText().toString()) = "doctor") {
-//                    //String getEditTextP = editTextP.getText().toString();
-//                    Intent intent = new Intent(AdminSearchUserUI.this, AdminViewDoctorSummary.class);
-//                    //intent.putExtra("editTextP", getEditTextP);
-//                    startActivity(intent);
-//                } else if (userController.ViewController(userName.getText().toString()) = "Pharmacist" || userController.ViewController(userName.getText().toString()) = "pharmacist") {
-//                    //String getEditTextP = editTextP.getText().toString();
-//                    Intent intent = new Intent(AdminSearchUserUI.this, AdminViewPharmacistSummary.class);
-//                    //intent.putExtra("editTextP", getEditTextP);
-//                    startActivity(intent);
-//                }
+                boolean isValidate = userController.CheckUserExistOrNot(userName.getText().toString());
+
+                if (isValidate) {
+                    People p1 = userController.ViewController(userName.getText().toString());
+                    Intent intent = new Intent(AdminSearchUserUI.this, AdminViewAccountSummary.class);
+                    intent.putExtra("roles",  p1.getRoles());
+                    intent.putExtra("userName",  p1.getUserName());
+                    intent.putExtra("address",  p1.getAddress());
+                    intent.putExtra("contactNumber",  p1.getContactNumber());
+                    intent.putExtra("email",  p1.getEmail());
+                    startActivity(intent);
+
+                    Toast.makeText(AdminSearchUserUI.this, "Viewing " + p1.getUserName() + " data now", Toast.LENGTH_LONG).show();
+                }
+                else {
+                    Toast.makeText(AdminSearchUserUI.this, "user not found!!", Toast.LENGTH_LONG).show();
+                }
 
             }
-
-
             if (view == b10) {
                 goHome();
             }

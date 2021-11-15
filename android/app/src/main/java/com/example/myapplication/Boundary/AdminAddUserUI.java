@@ -53,7 +53,6 @@ public class AdminAddUserUI extends AppCompatActivity {
                     String getUserContactNo = contactNumber.getText().toString();
                     String getUserEmail = email.getText().toString();
 
-
                     Toast.makeText(AdminAddUserUI.this, "Data inserted successfully!", Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(AdminAddUserUI.this, SummaryOfAccountAdded.class);
                     intent.putExtra("enterName", getUserName);

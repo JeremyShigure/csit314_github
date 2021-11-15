@@ -6,15 +6,19 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
+import android.widget.Toast;
 
-import com.example.myapplication.Boundary.R;
+import com.example.myapplication.Controller.PrescriptionController;
+import com.example.myapplication.Entity.PatientD;
+
+import java.util.ArrayList;
 
 public class ViewPrescriptionStatus extends AppCompatActivity {
 
     Button searchButton;
     EditText userName;
     Button vppbthButton;
+    PrescriptionController prescriptionController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +39,7 @@ public class ViewPrescriptionStatus extends AppCompatActivity {
             searchButton = (Button) findViewById(R.id.searchButton);
             userName = (EditText) findViewById(R.id.vppidTextBox);
             vppbthButton = (Button) findViewById(R.id.vppbthButton);
+            prescriptionController = new PrescriptionController();
 
         } catch (NullPointerException exc) {
             exc.printStackTrace();
@@ -51,7 +56,23 @@ public class ViewPrescriptionStatus extends AppCompatActivity {
         @Override
         public void onClick(View view) {
             if (view == searchButton) {
-                PharmacistViewPatientPrescriptionStatusPage2();
+
+                boolean isValidate = prescriptionController.checkPrescriptionID(userName.getText().toString());
+
+                if (isValidate) {
+                    ArrayList<PatientD> p1 = prescriptionController.viewController(userName.getText().toString());
+
+                    PharmacistViewPatientPrescriptionStatusPage2(p1);
+
+                    Toast.makeText(ViewPrescriptionStatus.this, "Viewing " + userName.getText().toString() + " data now!!", Toast.LENGTH_LONG).show();
+
+                    //Clear everytime when open
+                    p1.clear();
+                }
+                else {
+                    Toast.makeText(ViewPrescriptionStatus.this, "Data not found!!", Toast.LENGTH_LONG).show();
+                }
+
             }
             if (view == vppbthButton) {
                 goHome();
@@ -59,8 +80,9 @@ public class ViewPrescriptionStatus extends AppCompatActivity {
         }
     };
 
-    public void PharmacistViewPatientPrescriptionStatusPage2() {
+    public void PharmacistViewPatientPrescriptionStatusPage2(ArrayList<PatientD> p1) {
         Intent intent = new Intent(ViewPrescriptionStatus.this, PharmacistViewCurrentPrescriptionStatus.class);
+        intent.putExtra("p_list", p1);
         startActivity(intent);
     }
 //

@@ -16,8 +16,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.myapplication.Controller.PrescriptionController;
 import com.example.myapplication.Controller.UserController;
 import com.example.myapplication.Boundary.R;
+import com.example.myapplication.Entity.PatientD;
+
+import java.util.ArrayList;
 
     /*
         This source code could be used for academic purposes only. Posting on other websites or blogs is only allowed with a dofollow link to the orignal content.
@@ -28,7 +32,7 @@ public class UserLoginPage extends AppCompatActivity {
     Button login;
     EditText userName, password;
     Spinner roles;
-    // End Declaring layout button, edit texts
+    PrescriptionController prescriptionController;
 
     DBHelper databaseHelper;
 
@@ -41,6 +45,7 @@ public class UserLoginPage extends AppCompatActivity {
         password = (EditText) findViewById(R.id.passwordTextBox);
         login = (Button) findViewById(R.id.btnLogin);
         roles = (Spinner) findViewById(R.id.spinRoles);
+        prescriptionController = new PrescriptionController();
 
         UserController userController = new UserController();
 
@@ -52,21 +57,30 @@ public class UserLoginPage extends AppCompatActivity {
             public void onClick(View v) {
                 //boolean isExist = userController.validateLogin(username.getText().toString(), password.getText().toString(), dropdownlist.getSelectedItem().toString());
 
-                String item = roles.getSelectedItem().toString();
+                boolean isValidate = userController.checkUserExistInTheDatabaseOrNot(userName.getText().toString(), password.getText().toString(), roles.getSelectedItem().toString());
 
-                boolean isValidate = userController.validateLogin(userName.getText().toString(), password.getText().toString(), roles.getSelectedItem().toString());
+                String item;
 
                 if (isValidate) {
-                    if (userName.getText().toString().toLowerCase().contains("doctor") && item.equals("doctor")) {
+                    item = roles.getSelectedItem().toString();
+                    System.out.println("TTTTTTTTTTTEEEEEEEEEEEEEEEESSSSSSSSSSSSSSSSSSTTTTTTTTTTTTTTTTTTIIIIIIIIIIIINNNNNNNNNNNNNGGGGGGGGGGGG");
+
+                    System.out.println(userName.getText().toString());
+                    System.out.println(password.getText().toString());
+                    System.out.println(roles.getSelectedItem().toString());
+
+                    if (item.equals("doctor") || item.equals("Doctor")) {
                         openDoctor();
                     }
-                    else if (userName.getText().toString().toLowerCase().contains("pharmacist") && item.equals("pharmacist")) {
+                    if (item.equals("pharmacist") || item.equals("Pharmacist")) {
                         openPharmacist();
                     }
-                    else if (userName.getText().toString().toLowerCase().contains("patient") && item.equals("patient")) {
+                    if (item.equals("patient") || item.equals("Patient")) {
+                        ArrayList<PatientD> p1 = prescriptionController.viewController(userName.getText().toString());
+
                         openPatient();
                     }
-                    else if (userName.getText().toString().toLowerCase().contains("admin") && item.equals("admin")) {
+                    if (item.equals("admin") || item.equals("Admin")) {
                         openAdmin();
                     }
                     Toast.makeText(UserLoginPage.this, "Login Successfully as " + userName.getText().toString(), Toast.LENGTH_LONG).show();
@@ -86,6 +100,7 @@ public class UserLoginPage extends AppCompatActivity {
 
     public void openPatient() {
         Intent intent = new Intent(UserLoginPage.this, PatientMainPage.class);
+        intent.putExtra("userName", userName.getText().toString());
         startActivity(intent);
     }
 

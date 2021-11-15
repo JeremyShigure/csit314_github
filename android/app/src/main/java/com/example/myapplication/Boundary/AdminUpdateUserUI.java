@@ -44,7 +44,7 @@ public class AdminUpdateUserUI extends AppCompatActivity {
             public void onClick(View v) {
 
                 boolean isInsert = userController.CheckUpdateDetails(userName.getText().toString() ,password.getText().toString(), roles.getSelectedItem().toString(), address.getText().toString(), contactNumber.getText().toString(), email.getText().toString());
-                if (isInsert && userController.CheckAddedDetails(userName.getText().toString() ,password.getText().toString(), roles.getSelectedItem().toString(), address.getText().toString(), contactNumber.getText().toString(), email.getText().toString())) {
+                if (isInsert) {
 
                     String getUserName = userName.getText().toString();
                     String getUserPassword = password.getText().toString();

@@ -16,7 +16,7 @@ import java.io.OutputStream;
 
 public class User extends SQLiteOpenHelper{
 
-
+    String ID;
     String userName;
     String password;
     String roles;
@@ -36,55 +36,6 @@ public class User extends SQLiteOpenHelper{
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
         this.context = context;
         createDb();
-    }
-
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getRoles() {
-        return roles;
-    }
-
-    public void setRoles(String roles) {
-        this.roles = roles;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getContactNumber() {
-        return contactNumber;
-    }
-
-    public void setContactNumber(String contactNumber) {
-        this.contactNumber = contactNumber;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     @Override
@@ -120,7 +71,6 @@ public class User extends SQLiteOpenHelper{
             sqLiteDatabase.close();
             return true;
         }
-
         return false;
     }
 
@@ -144,14 +94,11 @@ public class User extends SQLiteOpenHelper{
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
-    private SQLiteDatabase openDatabase(){
+    public SQLiteDatabase openDatabase(){
         String path = DATABASE_PATH + DATABASE_NAME;
         db = SQLiteDatabase.openDatabase(path, null, SQLiteDatabase.OPEN_READWRITE);
-        System.out.println("================================+==+++==+++=++++=++++=++++++++++++++++++++++++++++++++++++++++++++++++");
-        System.out.println(db);
         return db;
     }
 
@@ -175,26 +122,7 @@ public class User extends SQLiteOpenHelper{
         }
     }
 
-    public boolean checkUserExist(String username, String Role){
-        String[] columns = {"userName"};
-        db = openDatabase();
-
-        String selection = "userName=? and roles = ?";
-        String[] selectionArgs = {username, Role};
-
-        Cursor cursor = db.query(Role, columns, selection, selectionArgs, null, null, null);
-        int count = cursor.getCount();
-
-        cursor.close();
-        close();
-
-        if(count > 0) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-    //CHeck User existing in database
+    //Check User existing in database
     public boolean checkUserNameExistOrNot(String username){
         String[] columns = {"userName"};
         db = openDatabase();
@@ -214,9 +142,30 @@ public class User extends SQLiteOpenHelper{
             return false;
         }
     }
+
+    public boolean checkUserExistInTheDatabaseOrNot(String username, String password, String roles){
+        String[] columns = {"userName, password, roles"};
+        db = openDatabase();
+
+        String selection = "userName=? and password=? and roles=? ";
+        String[] selectionArgs = {username, password, roles};
+
+        Cursor cursor = db.query("AllUser", columns, selection, selectionArgs, null, null, null);
+        int count = cursor.getCount();
+
+        cursor.close();
+        close();
+
+        if(count > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     People p1;
 
-    //Retrieve role from Alluser Table
+    //Retrieve role from AllUser Table
     public People checkUserExistInWhichTable(String userName){
 
         String[] columns = {"*"};
@@ -226,42 +175,22 @@ public class User extends SQLiteOpenHelper{
         String[] selectionArgs = {userName};
 
         Cursor cursor = db.query("AllUser", columns, selection, selectionArgs, null, null, null);
-        //String roles ="";
-        //System.out.println(cursor.getColumnIndex("data"));
+
         if(cursor.moveToFirst()){
+            ID = cursor.getString(0);
             userName = cursor.getString(1);
             password = cursor.getString(2);
             roles = cursor.getString(3);
             address = cursor.getString(4);
             contactNumber = cursor.getString(5);
             email = cursor.getString(6);
-            p1 = new People(userName, password, roles, address, contactNumber, email);
+            p1 = new People(ID, userName, password, roles, address, contactNumber, email);
         }
         cursor.close();
         close();
         //p1.setRoles(roles);
         return p1;
     }
-
-
-
-
-//    public String returnRoleTableAfterCheck(String username, boolean checkingUser) {
-//        String role = "";
-//
-//        if (checkingUser == true) {
-//            String conditions = "doctor join patient on doctor.docID = patient.patID join pharmacist on pharmacist.pharID = patient.patID";
-//            final Cursor c = db.rawQuery("SELECT roles FROM " + conditions + " WHERE userName =  " + "'" + username + "'", null);
-//
-//            if (c.moveToFirst()) {
-//                role = c.getString(c.getColumnIndex("roles"));
-//            }
-//            return role;
-//        }
-//
-//        return role;
-//    }
-
 
     public boolean AddUserDetails(String userName, String password, String roles, String address, String contactNumber, String email) {
         //System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
@@ -289,32 +218,25 @@ public class User extends SQLiteOpenHelper{
         }
     }
 
-    public Cursor getAllDataDoctor(String userName) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        Cursor res = db.rawQuery("SELECT * FROM Doctor WHERE userName = ?", new String[]{userName});
-        return res;
-    }
-
-    public Cursor getAllDataPatient(String userName) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        Cursor res = db.rawQuery("SELECT * FROM Patient WHERE userName = ?", new String[]{userName});
-        return res;
-    }
-
-    public Cursor getAllDataPharmacist(String userName) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        Cursor res = db.rawQuery("SELECT * FROM Pharmacist WHERE userName = ?", new String[]{userName});
-        return res;
-    }
-
-    public Cursor getUserAccountData(String userNameInput, String passwordInput) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        Cursor res = db.rawQuery("SELECT role from Login where userName = " + "'" + userNameInput + "'" + "and password = " + "'" + passwordInput + "'", null);
-        return res;
-    }
+//    public boolean UpdateUserDetails(String Username, String Password, String Role, String Address, String contactNo, String email) {
+////        SQLiteDatabase db = this.getWritableDatabase();
+//
+//        db = openDatabase();
+//
+//        ContentValues contentValues = new ContentValues();
+//        //contentValues.put(Role + "ID", id);
+//        contentValues.put("password", Password);
+//        //contentValues.put("roles", Role);
+//        contentValues.put("address", Address);
+//        contentValues.put("contactNumber", contactNo);
+//        contentValues.put("email", email);
+//        //If insert fails, its gonna return -1 to us
+//        //db.update(Role, contentValues, "userName = ? and roles = ? and password = ?", new String[]{Username, Role, Password});
+//        db.update(Role, contentValues, "userName = ? and roles = ?", new String[]{Username, Role});
+//        return true;
+//    }
 
     public boolean UpdateUserDetails(String Username, String Password, String Role, String Address, String contactNo, String email) {
-//        SQLiteDatabase db = this.getWritableDatabase();
 
         db = openDatabase();
 
@@ -330,7 +252,5 @@ public class User extends SQLiteOpenHelper{
         db.update(Role, contentValues, "userName = ? and roles = ?", new String[]{Username, Role});
         return true;
     }
-
-
 
 }
